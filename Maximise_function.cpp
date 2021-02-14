@@ -1,40 +1,42 @@
 #include <iostream>
 #include <climits>
-#include <vector>
 using namespace std;
 
 int main()
 {
     int test_cases = 0;
     cin >> test_cases;
-
-    vector<int> arr;
+    if (test_cases < 1 || test_cases > 5)
+    {
+        exit(-1);
+    }
 
     while (test_cases != 0)
     {
         int no_of_items = 0;
         cin >> no_of_items;
 
+        if (no_of_items < 0 || no_of_items > 500)
+        {
+            exit(-2);
+        }
+
         int mx = INT_MIN;
         int mn = INT_MAX;
 
+        int arr[no_of_items] = {0};
+
         for (int i = 0; i < no_of_items; i++)
         {
-            int item = 0;
-            cin >> item;
+            cin >> arr[i];
 
-            mx = max(mx, item);
-            mn = min(mn, item);
+            mx = max(mx, arr[i]);
+            mn = min(mn, arr[i]);
         }
 
-        arr.push_back(2 * (mx - mn));
+        cout << 2 * (mx - mn) << endl;
 
         test_cases--;
-    }
-
-    for (int i = 0; i < arr.size(); i++)
-    {
-        cout << arr[i] << endl;
     }
 
     return 0;
