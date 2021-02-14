@@ -30,8 +30,11 @@ int main()
         {
             cin >> arr[i];
 
-            mx = max(mx, arr[i]);
-            mn = min(mn, arr[i]);
+            if (arr[i] > mx)
+                mx = arr[i];
+
+            if (arr[i] < mn)
+                mn = arr[i];
         }
 
         cout << 2 * (mx - mn) << endl;
